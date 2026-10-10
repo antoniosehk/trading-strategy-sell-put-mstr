@@ -84,5 +84,5 @@ Selling out-of-the-money puts on MSTR (MicroStrategy Inc.) every Friday (or prec
 - **Holiday Observation**: If Friday is an official exchange holiday (e.g. Good Friday), the bot automatically evaluates entry on **Thursday**, ensuring the weekly ladder remains uninterrupted.
 
 ## Defensive Adjustments (Roll Out & Roll Down)
-- **Tested Strike Defense**: If MSTR spot touches the strike price ($\text{Spot} \le \text{Strike}$), the position is considered tested. The strategy initiates a **ROLL_DOWN_AND_OUT** to the next ~45 DTE cycle at the 0.16 delta strike.
+- **Tested Strike Defense**: If MSTR spot touches the strike price (Spot ≤ Strike), the position is considered tested. The strategy initiates a **ROLL_DOWN_AND_OUT** to the next ~45 DTE cycle at the 0.16 delta strike.
 - **21 DTE Roll**: At 21 DTE, the position is systematically rolled out to the next ~45 DTE cycle at the target ~0.16 delta strike to maintain continuous time decay exposure.

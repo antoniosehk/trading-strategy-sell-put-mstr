@@ -6,8 +6,8 @@ Systematic quantitative cash-secured short put selling strategy on **`US.MSTR`**
 - **Macro Trend Filter (`MSTR Spot > SMA200`):** Enforces a strict 200-day simple moving average regime gatekeeper. Trading solely when MSTR trades above its 200-day SMA completely sidelines the strategy during prolonged bear regimes, avoiding the catastrophic drawdowns of the 2022 crypto winter.
 - **Conservative Delta Selection (`delta_target: 0.16`):** Sells out-of-the-money puts at approximately 1 standard deviation OTM (~0.16 Delta). Given MSTR's extreme implied volatility (80%–130%), 0.16 Delta harvests substantial premium while providing an expansive margin of safety against aggressive equity pullbacks.
 - **Tastytrade Mechanics:** Sells ~0.16 Delta Puts targeting 45 DTE on Fridays, systematically takes profit at 50% max credit, and rolls or closes trades at 21 DTE.
-- **Defensive Adjustments:** Automated `ROLL_DOWN_AND_OUT` when tested ($\text{Spot} \le \text{Strike}$) or at 21 DTE to extend duration and improve breakevens.
-- **Position Sizing & Capital Requirements:** Fixed 1 contract per entry ($15,000–$35,000 notional on $100,000 capital) keeping cash collateral strictly $\le 1.0\times$ leverage (100% Cash-Secured).
+- **Defensive Adjustments:** Automated `ROLL_DOWN_AND_OUT` when tested (Spot ≤ Strike) or at 21 DTE to extend duration and improve breakevens.
+- **Position Sizing & Capital Requirements:** Fixed 1 contract per entry (\$15,000–\$35,000 notional on \$100,000 capital) keeping cash collateral strictly ≤ 1.0× leverage (100% Cash-Secured).
 
 ## Specification
 The canonical machine-readable specification is authored in [`STRATEGY.md`](./STRATEGY.md) with YAML frontmatter.
