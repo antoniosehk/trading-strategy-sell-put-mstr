@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "trading-strategy-sell-put-mstr"
-version = "1.0.0"
+version = "1.0.1"
 description = "Tastytrade mechanics for selling out-of-the-money cash-secured puts on US.MSTR with IBIT macro 200 SMA trend filter"
 readme = "README.md"
 requires-python = ">=3.10"

@@ -1,6 +1,6 @@
 ---
 name: trading-strategy-sell-put-mstr
-version: 1.0.0
+version: 1.0.1
 enabled: true
 description: Tastytrade mechanics for selling out-of-the-money puts on MSTR on Fridays with 200-day trend filter, defensive rolling, and 0.16 Delta
 strategy_type: SHORT_PUT
