@@ -2,7 +2,7 @@
 name: trading-strategy-sell-put-mstr
 version: 1.0.0
 enabled: true
-description: Tastytrade mechanics for selling out-of-the-money puts on MSTR on Fridays with IBIT macro 200-day trend filter, defensive rolling, and 0.16 Delta
+description: Tastytrade mechanics for selling out-of-the-money puts on MSTR on Fridays with 200-day trend filter, defensive rolling, and 0.16 Delta
 strategy_type: SHORT_PUT
 underlying: US.MSTR
 market: US
@@ -17,10 +17,10 @@ entry_rules:
   schedule_days: ["FRIDAY"]
   holiday_behavior: PRIOR_TRADING_DAY
 
-  # Cross-Asset Macro Moving Average Trend Filter (IBIT 200 SMA)
+  # Moving Average Trend Filter (MSTR 200 SMA)
   trend_filter:
     enabled: true
-    underlying: IBIT
+    underlying: MSTR
     ma_type: SMA
     period: 200
     timeframe: DAY
@@ -66,12 +66,12 @@ adjustment_rules:
     min_ivr: 0.0
 ---
 
-# Trading Strategy: Sell Put on MSTR (Tastytrade Friday Ladder with IBIT Macro Trend Filter)
+# Trading Strategy: Sell Put on MSTR (Tastytrade Friday Ladder with 200-day Trend Filter)
 
 ## Core Philosophy
 Selling out-of-the-money puts on MSTR (MicroStrategy Inc.) every Friday (or preceding trading day if Friday is a holiday) when:
 1. The strategy is ENABLED.
-2. The macro crypto trend is bullish (IBIT spot price > 200-day SMA). Anchoring to IBIT (spot Bitcoin ETF) instead of MSTR filters out corporate convertible debt dilution, Net Asset Value (NAV) premium volatility, and high-beta noise, ensuring entries only occur during structural Bitcoin bull markets.
+2. The macro trend is bullish (MSTR spot price > 200-day SMA). Trading exclusively when MSTR trades above its 200-day SMA ensures puts are sold only during structural long-term bull regimes, cleanly avoiding the deep crypto winter drawdowns of 2022.
 3. Conservative Delta selection: targeting ~0.16 Delta (~1 standard deviation out-of-the-money). Given MSTR's extreme implied volatility (80%–130%), 0.16 Delta harvests substantial premium while establishing a deep safety buffer against MSTR's severe daily pullbacks.
 
 ## Position Sizing & Capacity

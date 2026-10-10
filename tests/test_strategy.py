@@ -33,7 +33,7 @@ def test_load_strategy_success():
     assert spec.entry_rules.delta_target == 0.16
     assert spec.entry_rules.trend_filter is not None
     assert spec.entry_rules.trend_filter.enabled is True
-    assert spec.entry_rules.trend_filter.underlying == "IBIT"
+    assert spec.entry_rules.trend_filter.underlying == "MSTR"
     assert spec.exit_rules.profit_target_pct == 0.50
     assert spec.exit_rules.time_stop_dte == 21
 
