@@ -47,16 +47,8 @@ exit_rules:
   stop_loss_multiplier: null
   urgent_exit_dte: 7
 
-# Defensive Adjustment Rules (Roll Out, Roll Down, Price Triggers)
+# Defensive Adjustment Rules (Roll Out, Roll Down, DTE Triggers)
 adjustment_rules:
-  - name: "tested_strike_defense"
-    trigger_type: UNDERLYING_PRICE_TOUCH
-    trigger_threshold: 1.0
-    action: ROLL_DOWN_AND_OUT
-    target_dte: 45
-    target_delta: 0.16
-    min_ivr: 0.0
-
   - name: "21_dte_roll"
     trigger_type: TIME_DTE
     trigger_threshold: 21
@@ -83,6 +75,6 @@ Selling out-of-the-money puts on MSTR (MicroStrategy Inc.) every Friday (or prec
 - **Weekend Guard**: On Saturdays and Sundays, no orders are placed and the monitor remains idle.
 - **Holiday Observation**: If Friday is an official exchange holiday (e.g. Good Friday), the bot automatically evaluates entry on **Thursday**, ensuring the weekly ladder remains uninterrupted.
 
-## Defensive Adjustments (Roll Out & Roll Down)
-- **Tested Strike Defense**: If MSTR spot touches the strike price (Spot ≤ Strike), the position is considered tested. The strategy initiates a **ROLL_DOWN_AND_OUT** to the next ~45 DTE cycle at the 0.16 delta strike.
+## Defensive Adjustments & DTE Management
+- **No Mid-Trade Strike Touch Defense**: Tested strike defense (`UNDERLYING_PRICE_TOUCH`) is intentionally disabled based on empirical backtesting showing that avoiding intraday panic stop-outs elevates win rate, while the 200-day SMA macro filter (`MSTR Spot > SMA 200`) provides structural downside protection.
 - **21 DTE Roll**: At 21 DTE, the position is systematically rolled out to the next ~45 DTE cycle at the target ~0.16 delta strike to maintain continuous time decay exposure.
